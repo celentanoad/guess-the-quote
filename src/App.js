@@ -84,6 +84,10 @@ function App(props) {
     }
         <button className="new" onClick={getQuotes}>Get New Quotes</button>
       </header>
+      <footer>
+        <p>Made with &hearts; by Alanna Celentano</p>
+        <p>View the source code at <a href="https://github.com/celentanoad/guess-the-quote">https://github.com/celentanoad/guess-the-quote</a></p>
+      </footer>
     </div>
   );
 }
