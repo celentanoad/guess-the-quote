@@ -1,1 +1,0 @@
-// if width is < 1000  then flex-direction changes to column
