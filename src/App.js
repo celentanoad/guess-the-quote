@@ -9,7 +9,6 @@ function App(props) {
  const [realQuote, setRealQuote] = useState(null)
  const [fakeQuote, setFakeQuote] = useState(null)
  const [order, setOrder] = useState(0)
-//  const [message, setMessage] = useState(null)
 
  const getQuotes = async () => {
    props.setMessage(null)
@@ -21,12 +20,11 @@ function App(props) {
    setOrder(num);
  }
 
- useEffect(() => {
-   getQuotes()
- }, []);
+//  useEffect(() => {
+//    getQuotes()
+//  }, []);
 
  const handleGuess = (e) => {
-   console.log(e)
   if (e.target.textContent === realQuote) {
     props.setMessage("You got it right!");
   } else {
