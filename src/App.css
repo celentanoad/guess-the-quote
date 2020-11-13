@@ -9,7 +9,6 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  /* justify-content: center; */
   color: white;
 }
 
@@ -18,13 +17,11 @@
    display: flex;
    flex-direction: column;
   }
-  button {
+  .quote {
+    padding: 20px 5px;
     max-width: 500px;
     height: fit-content;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 0px;
   }
 }
 
@@ -34,9 +31,14 @@
     display: flex;
     flex-direction: row;
   }
-  button {
+  .quote {
+    display: flex;
     width: 500px;
     height: 200px;
+    margin: 0 5px;
+    justify-content: center;
+    align-items: center;
+    
   }
   .App-header {
     padding-top: 100px;
@@ -44,7 +46,14 @@
 }
 
 .quote {
+  border: white solid 2px;
+  background-color: rgb(58, 58, 58);
+  color: white;
   font-size: 20px;
+}
+
+.quote:hover {
+  background-color: darkgray;
 }
 
 .new {

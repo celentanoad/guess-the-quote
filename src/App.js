@@ -42,21 +42,13 @@ function App(props) {
           :
         order === 0 ?
         <div className="buttons">
-          <button onClick={(e) => handleGuess(e)}>
-           <div className="quote">{realQuote}</div>
-          </button>
-          <button onClick={(e) => handleGuess(e)}>
-           <div className="quote">{fakeQuote}</div>
-          </button>
+          <div className="quote" onClick={(e) => handleGuess(e)}>{realQuote}</div>
+          <div className="quote" onClick={(e) => handleGuess(e)}>{fakeQuote}</div>
         </div>
         :
         <div className="buttons">
-           <button onClick={(e) => handleGuess(e)}>
-           <div className="quote">{fakeQuote}</div>
-          </button>
-          <button onClick={(e) => handleGuess(e)}>
-           <div className="quote">{realQuote}</div>
-          </button>
+           <div className="quote" onClick={(e) => handleGuess(e)}>{fakeQuote}</div>
+           <div className="quote" onClick={(e) => handleGuess(e)}>{realQuote}</div>
         </div>
         
       }
