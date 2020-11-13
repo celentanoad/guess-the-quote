@@ -20,9 +20,9 @@ function App(props) {
    setOrder(num);
  }
 
-//  useEffect(() => {
-//    getQuotes()
-//  }, []);
+ useEffect(() => {
+   getQuotes()
+ }, []);
 
  const handleGuess = (e) => {
   if (e.target.textContent === realQuote) {
