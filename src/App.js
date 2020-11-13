@@ -4,7 +4,7 @@ import * as fakeQuotes from './data/fakeQuotes';
 import * as realQuotes from './data/realQuotes';
 import { connect } from 'react-redux';
 import image0 from './images/logo512.png';
-import image1 from './images/face1.jpg';
+import image1 from './images/face1.png';
 import image2 from './images/face2.png';
 import image3 from './images/face3.png';
 import image4 from './images/face4.png';
