@@ -77,7 +77,7 @@ function App(props) {
       {image ? 
       <div>
         <hr></hr>
-        <ReactPlayer url="https://www.youtube.com/watch?v=Zph7YXfjMhg" playing={true}/>
+        <ReactPlayer width="400px" url="https://www.youtube.com/watch?v=Zph7YXfjMhg" playing={true}/>
       </div>
         :
         <></>
