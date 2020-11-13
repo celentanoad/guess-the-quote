@@ -3,6 +3,7 @@ import './App.css';
 import * as fakeQuotes from './data/fakeQuotes';
 import * as realQuotes from './data/realQuotes';
 import { connect } from 'react-redux';
+import ReactPlayer from 'react-player';
 import image0 from './images/logo512.png';
 import image1 from './images/face1.png';
 import image2 from './images/face2.png';
@@ -72,8 +73,15 @@ function App(props) {
            <div className="quote" onClick={(e) => handleGuess(e)}>{fakeQuote}</div>
            <div className="quote" onClick={(e) => handleGuess(e)}>{realQuote}</div>
         </div>
-        
       }
+      {image ? 
+      <div>
+        <hr></hr>
+        <ReactPlayer url="https://www.youtube.com/watch?v=Zph7YXfjMhg" playing={true}/>
+      </div>
+        :
+        <></>
+    }
         <button className="new" onClick={getQuotes}>Get New Quotes</button>
       </header>
     </div>
