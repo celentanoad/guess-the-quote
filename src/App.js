@@ -10,25 +10,26 @@ import image2 from './images/face2.png';
 import image3 from './images/face3.png';
 import image4 from './images/face4.png';
 import image5 from './images/face5.png';
+import Game from './Game';
 
 const images = [image0, image1, image2, image3, image4, image5]
 
 function App(props) {
 
- const [realQuote, setRealQuote] = useState(null)
- const [fakeQuote, setFakeQuote] = useState(null)
- const [order, setOrder] = useState(0)
- const [image, setImage] = useState(null)
+//  const [realQuote, setRealQuote] = useState(null)
+//  const [fakeQuote, setFakeQuote] = useState(null)
+//  const [order, setOrder] = useState(0)
+//  const [image, setImage] = useState(null)
 
  const getQuotes = async () => {
    props.setMessage(null);
-   setImage(null);
+   props.setImage(null);
    const real = await realQuotes.getRandomRealQuote();
    const fake = await fakeQuotes.getRandomFakeQuote();
-   setRealQuote(real);
-   setFakeQuote(fake);
+   props.setRealQuote(real);
+   props.setFakeQuote(fake);
    const num = Math.floor(Math.random() * 2)
-   setOrder(num);
+   props.setOrder(num);
  }
 
  useEffect(() => {
@@ -36,7 +37,7 @@ function App(props) {
  }, []);
 
  const handleGuess = (e) => {
-  if (e.target.textContent === realQuote) {
+  if (e.target.textContent === props.realQuote) {
     getImageNumber()
     props.setMessage("You got it right!");
   } else {
@@ -45,14 +46,19 @@ function App(props) {
  }
 
  const getImageNumber = () => {
-   setImage(images[Math.floor(Math.random() * 6)]);
+   props.setImage(images[Math.floor(Math.random() * 6)]);
  }
 
   return (
     <div className="App">
     <h1>Did he <i>really</i> say that?</h1>
     <h2>Click on the quote you think is real!</h2>
-      <header className="App-header">
+    <Game 
+      getQuotes={getQuotes}
+      handleGuess={handleGuess}
+      getImageNumber={getImageNumber}
+    />
+      {/* <header className="App-header">
         {props.message ? 
           <>
             <h3>{props.message}</h3>
@@ -63,7 +69,7 @@ function App(props) {
             }
           </>
           :
-        order === 0 ?
+        props.order === 0 ?
         <div className="buttons">
           <div className="quote" onClick={(e) => handleGuess(e)}>{realQuote}</div>
           <div className="quote" onClick={(e) => handleGuess(e)}>{fakeQuote}</div>
@@ -83,7 +89,7 @@ function App(props) {
         <></>
     }
         <button className="new" onClick={getQuotes}>Get New Quotes</button>
-      </header>
+      </header> */}
       <footer>
         <p>Made with &hearts; by Alanna Celentano</p>
         <p>View the source code at <a href="https://github.com/celentanoad/guess-the-quote">https://github.com/celentanoad/guess-the-quote</a></p>
@@ -94,7 +100,11 @@ function App(props) {
 
 function mapStateToProps(state){
   return {
-    message: state.message
+    message: state.message,
+    order: state.order,
+    image: state.image,
+    realQuote: state.realQuote,
+    fakeQuote: state.fakeQuote
   }
 }
 
@@ -102,6 +112,18 @@ function mapDispatchToProps(dispatch){
   return {
     setMessage: (message) => {
       dispatch({type: "SET_MESSAGE", payload: message})
+    },
+    setOrder: (order) => {
+      dispatch({type: "SET_ORDER", payload: order})
+    },
+    setImage: (image) => {
+      dispatch({type: "SET_IMAGE", payload: image})
+    },
+    setRealQuote: (quote) => {
+      dispatch({type: "SET_REAL_QUOTE", payload: quote})
+    },
+    setFakeQuote: (quote) => {
+      dispatch({type: "SET_FAKE_QUOTE", payload: quote})
     }
   }
 }
